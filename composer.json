@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.0|^8.0",
         "beyondcode/laravel-websockets": "^1.12",
         "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4.4",
@@ -20,13 +20,15 @@
         "laravel/tinker": "^2.5",
         "phpdocumentor/reflection-docblock": "^5.2",
         "pusher/pusher-php-server": "^4.0|^5.0|^6.0|^7.0",
+        "rakutentech/laravel-request-docs": "^2.16",
         "spatie/laravel-activitylog": "^4.4",
         "symfony/mailer": "^6.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.11",
+        "barryvdh/laravel-ide-helper": "^2.12",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "laravel-lang/common": "^3.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
@@ -42,9 +44,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-                "barryvdh/laravel-ide-helper"
-            ]
+            "dont-discover": []
         }
     },
     "autoload": {

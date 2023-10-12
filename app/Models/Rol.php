@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rol extends Model
 {
-    protected $table = 'rols_tbl';
-    protected $primaryKey = 'id';
     use HasFactory;
-
-
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +15,11 @@ class Rol extends Model
      * @var array
      */
     protected $fillable = [
-        'name_rol',
+        'name',
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

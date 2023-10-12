@@ -11,7 +11,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Status;
 
-class statusCreated implements ShouldBroadcast
+class StatusCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,7 +24,7 @@ class statusCreated implements ShouldBroadcast
     public $status;
     public function __construct()
     {
-        \App::call('App\Http\Controllers\StatusController@index');
+        $this->status = \App::call('App\Http\Controllers\StatusController@index');
     }
 
     /**

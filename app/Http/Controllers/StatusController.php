@@ -2,69 +2,105 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Status;
 use App\Events\statusCreated;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 
 class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        return Status::all();
+        $status = Status::all();
+        return \response()->json([
+            "message" => "success",
+            "data" => $status
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $status = Status::create($request->all());
-        statusCreated::dispatch($status);
-        return $status;
+        try {
+            statusCreated::dispatch($status);
+        } catch (\Exception) {
+        }
+        return \response()->json([
+            "message" => "success",
+            "data" => $status
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(int $id): JsonResponse
     {
-        return Status::find($id);
+        $status = Status::find($id);
+        if (!empty($status)) {
+            return \response()->json([
+                "message" => "success",
+                "data" => $status
+            ]);
+        } else {
+            return \response()->json([
+                "message" => "Status no encontrado",
+            ], 404);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id): JsonResponse
     {
         $status = Status::find($id);
-        $status->update($request->all());
-        statusCreated::dispatch($status);
-        return $status;
+        if (!empty($status)) {
+            $status->update($request->all());
+            try {
+                statusCreated::dispatch($status);
+            } catch (\Exception) {
+            }
+            return \response()->json([
+                "message" => "success",
+                "data" => $status
+            ]);
+        } else {
+            return \response()->json([
+                "message" => "Status no encontrado",
+            ], 404);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
-    {
-        return Status::destroy($id);
-    }
+    // public function destroy($id)
+    // {
+    //     return Status::destroy($id);
+    // }
 }
