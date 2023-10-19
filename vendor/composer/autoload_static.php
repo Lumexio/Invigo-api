@@ -459,8 +459,8 @@ class ComposerStaticInitd505d12d6a289b968e1b038bf842dea8
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -775,8 +775,10 @@ class ComposerStaticInitd505d12d6a289b968e1b038bf842dea8
         'App\\Events\\CategoryCreated' => __DIR__ . '/../..' . '/app/Events/CategoryCreated.php',
         'App\\Events\\MeseroEvents' => __DIR__ . '/../..' . '/app/Events/MeseroEvents.php',
         'App\\Events\\ProductCreated' => __DIR__ . '/../..' . '/app/Events/ProductCreated.php',
+        'App\\Events\\ProviderCreated' => __DIR__ . '/../..' . '/app/Events/ProviderCreated.php',
         'App\\Events\\TableCreated' => __DIR__ . '/../..' . '/app/Events/TableCreated.php',
         'App\\Events\\TypeCreated' => __DIR__ . '/../..' . '/app/Events/TypeCreated.php',
+        'App\\Events\\userCreated' => __DIR__ . '/../..' . '/app/Events/userCreated.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Helpers\\WorkshiftReport' => __DIR__ . '/../..' . '/app/Helpers/WorkshiftReport.php',
         'App\\Http\\Controllers\\ActivitylogController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActivitylogController.php',
@@ -836,6 +838,7 @@ class ComposerStaticInitd505d12d6a289b968e1b038bf842dea8
         'App\\Http\\Requests\\Tickets\\PayRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Tickets/PayRequest.php',
         'App\\Http\\Requests\\TypeValidationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TypeValidationRequest.php',
         'App\\Http\\Requests\\UpdateStock' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateStock.php',
+        'App\\Http\\Requests\\UserUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserUpdateRequest.php',
         'App\\Http\\Requests\\UserValidationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserValidationRequest.php',
         'App\\Http\\Requests\\Workshift\\CloseRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Workshift/CloseRequest.php',
         'App\\Http\\Requests\\Workshift\\StartRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Workshift/StartRequest.php',
