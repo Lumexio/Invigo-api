@@ -5,7 +5,7 @@ FROM php:8.0-apache
 WORKDIR /var/www/html
 
 # Copy the application files to the container
-# COPY ./src /var/www/html/
+ COPY ./ /var/www/html/
 
 # Install system dependencies
 RUN apt-get update && \
