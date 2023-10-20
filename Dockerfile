@@ -20,8 +20,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pdo pdo_mysql
 
 # Install application dependencies using Composer
-# RUN composer install --no-interaction --optimize-autoloader
- RUN composer install 
+ RUN composer install --no-interaction --optimize-autoloader
+
 
 
 # Set up Apache virtual host
