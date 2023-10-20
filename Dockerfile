@@ -5,7 +5,7 @@ FROM php:8.0-apache
 WORKDIR /var/www/html
 
 # Copy the application files to the container
-COPY ./src /var/www/html/
+# COPY ./src /var/www/html/
 
 # Install system dependencies
 RUN apt-get update && \
@@ -23,7 +23,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN composer install --no-interaction --optimize-autoloader
 
 # Set up Apache virtual host
-COPY apache.conf /etc/apache2/sites-available/000-default.conf
+# COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 # Start Apache server
