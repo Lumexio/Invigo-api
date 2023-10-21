@@ -31,6 +31,6 @@ EXPOSE 80
 # Apache configuration
 RUN a2enmod rewrite
 COPY apache2.conf /etc/apache2/apache2.conf
-
+RUN sudo a2enmod mpm_prefork
 # Command to run Apache in the foreground
 CMD ["apache2-foreground"]
