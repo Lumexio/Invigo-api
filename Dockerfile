@@ -16,6 +16,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies
+RUN composer update --no-scripts --no-autoloader
 RUN composer install --no-scripts --no-autoloader
 
 # Expose port 80
