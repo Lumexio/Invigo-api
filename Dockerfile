@@ -7,7 +7,9 @@ RUN apt-get update \
     && apt-get clean
 
 # Install Composer globally
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm composer-setup.php
 
 # Create a non-root user and switch to that user
 RUN groupadd -g 1000 composer && useradd -u 1000 -g composer -m -s /bin/bash composer
