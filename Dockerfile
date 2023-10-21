@@ -21,7 +21,8 @@ WORKDIR /var/www/html
 
 # Copy the application files to the container
 COPY . .
-
+# Set permissions for installed.php file
+RUN chmod 644 /var/www/html/vendor/composer/installed.php
 # Install dependencies
 RUN composer install --no-scripts --no-autoloader
 
