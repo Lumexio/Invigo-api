@@ -34,7 +34,7 @@ RUN chmod 644 /usr/lib/apache2/modules/mod_mpm_prefork.so
 RUN a2enmod mpm_prefork
 RUN apachectl configtest
 # Mod mpm_prefork.so check in the container
-RUN ls /etc/apache2/modules/mod_mpm_prefork.so
+RUN ls /etc/apache2/modules/
 
 COPY apache2.conf /etc/apache2/apache2.conf
 
