@@ -26,7 +26,7 @@ RUN composer clear-cache
 
 RUN composer self-update
 
-RUN composer update --no-scripts --no-autoloader -vvv > /var/www/html/composer.log 2>&1
+#RUN composer update --no-scripts --no-autoloader -vvv > /var/www/html/composer.log 2>&1
 
 
 RUN composer install --no-scripts --no-autoloader
