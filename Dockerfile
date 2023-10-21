@@ -5,7 +5,7 @@ FROM php:8.0-apache
 WORKDIR /var/www/html
 
 # Copy the application files to the container
-COPY ./src /var/www/html/
+# COPY ./src /var/www/html/
 
 # Install system dependencies
 RUN apt-get update && \
@@ -20,7 +20,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pdo pdo_mysql
 
 # Install application dependencies using Composer
-RUN composer install --no-interaction --optimize-autoloader
+RUN composer install --no-interaction --optimize-autoloader && php artisan config:cache && php artisan event:cache && php artisan route:cache && php artisan view:cache
 
 # Set up Apache virtual host
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
