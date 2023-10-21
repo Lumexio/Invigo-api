@@ -9,6 +9,10 @@ RUN apt-get update \
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Create a non-root user and switch to that user
+RUN groupadd -g 1000 composer && useradd -u 1000 -g composer -m -s /bin/bash composer
+USER composer
+
 # Set the working directory in the container
 WORKDIR /var/www/html
 
@@ -16,7 +20,6 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies
-RUN composer update --no-scripts --no-autoloader
 RUN composer install --no-scripts --no-autoloader
 
 # Expose port 80
