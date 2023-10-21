@@ -22,13 +22,6 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies
-RUN composer clear-cache
-
-RUN composer self-update
-
-#RUN composer update --no-scripts --no-autoloader -vvv > /var/www/html/composer.log 2>&1
-
-
 RUN composer install --no-scripts --no-autoloader
 
 # Expose port 80
