@@ -12,17 +12,16 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && rm composer-setup.php
 # Enable bcmath extension
 RUN docker-php-ext-install bcmath
-# Create a non-root user and switch to that user
-RUN groupadd -g 1000 composer && useradd -u 1000 -g composer -m -s /bin/bash composer
-USER composer
+# # Create a non-root user and switch to that user
+# RUN groupadd -g 1000 composer && useradd -u 1000 -g composer -m -s /bin/bash composer
+# USER composer
 
 # Set the working directory in the container
 WORKDIR /var/www/html
 
 # Copy the application files to the container
 COPY . .
-# Set permissions for installed.php file
-RUN chmod 644 /var/www/html/vendor/composer/installed.php
+
 # Install dependencies
 RUN composer install --no-scripts --no-autoloader
 
