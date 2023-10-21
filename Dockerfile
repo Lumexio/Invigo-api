@@ -30,7 +30,9 @@ EXPOSE 80
 
 # Apache configuration
 RUN a2enmod rewrite
+RUN chmod 644 /usr/lib/apache2/modules/mod_mpm_prefork.so
 RUN a2enmod mpm_prefork
+RUN apachectl configtest
 COPY apache2.conf /etc/apache2/apache2.conf
 
 # Command to run Apache in the foreground
