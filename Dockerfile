@@ -1,5 +1,5 @@
 # Use an official PHP runtime with Apache as a parent image
-FROM php:7.4-apache
+FROM php:8.0-apache
 
 # Install system dependencies
 RUN apt-get update \
@@ -22,6 +22,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies
+RUN composer update --no-scripts --no-autoloader
 RUN composer install --no-scripts --no-autoloader
 
 # Expose port 80
