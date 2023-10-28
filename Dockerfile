@@ -32,8 +32,8 @@ EXPOSE 80
 RUN a2enmod rewrite
 RUN chmod 644 /usr/lib/apache2/modules/mod_mpm_prefork.so
 RUN a2enmod mpm_prefork
-# ServerName check in the container
-RUN --rm -h lumexio.me php:8.1-apache
+
+
 RUN apachectl configtest
 # Mod mpm_prefork.so check in the container
 
