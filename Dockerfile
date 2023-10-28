@@ -26,7 +26,10 @@ COPY . .
 RUN composer install --no-scripts --no-autoloader
 
 # Expose port 80
+
 EXPOSE 80
+EXPOSE 8000
+
 
 # Apache configuration
 RUN a2enmod rewrite
