@@ -43,5 +43,5 @@ RUN apachectl configtest
 
 COPY apache2.conf /etc/apache2/modules/apache2.conf
 # Command to run Apache in the foreground
-CMD ["apache2-foreground","php artisan serve"]
+CMD ["apache2-foreground"]
 
