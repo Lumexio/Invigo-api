@@ -19,7 +19,6 @@ RUN docker-php-ext-install bcmath
 # Set the working directory in the container
 WORKDIR /var/www/html
 
-RUN ls /var/www/html/
 # Copy the application files to the container
 COPY . .
 
@@ -40,7 +39,7 @@ RUN a2enmod mpm_prefork
 
 RUN apachectl configtest
 # Mod mpm_prefork.so check in the container
-
+RUN ls /var/www/html/
 
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 COPY apache2.conf /etc/apache2/sites-enabled/apache2.conf
