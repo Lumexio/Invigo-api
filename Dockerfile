@@ -39,7 +39,9 @@ RUN a2enmod mpm_prefork
 
 RUN apachectl configtest
 # Mod mpm_prefork.so check in the container
-RUN ls /var/www/html/
+USER www-data
+RUN chown -R www-data:www-data /var/www/html/storage
+RUN chmod -R 775 /var/www/html/storage
 
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 COPY apache2.conf /etc/apache2/sites-enabled/apache2.conf
