@@ -19,6 +19,7 @@ RUN docker-php-ext-install bcmath
 # Set the working directory in the container
 WORKDIR /var/www/html
 
+RUN ls /var/www/html/
 # Copy the application files to the container
 COPY . .
 
@@ -44,7 +45,7 @@ RUN apachectl configtest
 RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 COPY apache2.conf /etc/apache2/sites-enabled/apache2.conf
 # Permission for the storage folder
-RUN chmod -R 777 /var/www/html/storage/logs/laravel.log
+
 # Command to run Apache in the foreground
 CMD ["apache2-foreground"]
 
