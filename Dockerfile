@@ -46,6 +46,7 @@ USER root
 RUN chown -R www-data:www-data /var/www/html/storage
 RUN chmod -R 775 /var/www/html/storage
 USER www-data
+USER root
 # Permission for the storage folder
 
 # Command to run Apache in the foreground
