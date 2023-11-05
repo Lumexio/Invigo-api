@@ -26,7 +26,7 @@ COPY . .
 
 RUN composer install --no-scripts --no-autoloader
 RUN composer dump-autoload
-RUN php artisan migrate:freshh --seed
+RUN php artisan migrate:fresh --seed
 # Expose port 80
 
 EXPOSE 80
